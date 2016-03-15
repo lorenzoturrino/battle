@@ -25,9 +25,13 @@ class Battle < Sinatra::Base
     erb(:index)
   end
 
-  get '/attack' do
-  	@player1= session[:Name1]
-    @player2= session[:Name2]
+  get '/attack1' do
+    @sucker = session[:Name1]
+    erb(:attack)
+  end
+
+  get '/attack2' do
+    @sucker = session[:Name2]
     erb(:attack)
   end
 
