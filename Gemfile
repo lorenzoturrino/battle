@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.2.3'
 
 gem "sinatra"
 gem "rspec-sinatra"
 gem "capybara"
-gem "shotgun"
+
