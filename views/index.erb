@@ -1,5 +1,5 @@
 <div><%= @player1 %> vs <%= @player2 %></div>
-<table>
+<!-- <table>
 <thead><tr colspan=2>Hit Points</tr></thead>
 <tr>
 <td>Player 1 </td>
@@ -9,5 +9,9 @@
   <td> <%= @player1_hp %> </td>
   <td> <%= @player2_hp %> </td>
 </tr>
-</table>
-<div> player 2 has <%= @player2_hp %> Hit Points</div>
+</table> -->
+<div> player 1: <%= @player1_hp %> Hit Points</div>
+<div> player 2: <%= @player2_hp %> Hit Points</div>
+<form action="/attack">
+<button type="submit">ATTACK <%= @player2 %></button>
+</form>
