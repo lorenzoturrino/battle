@@ -1,1 +1,13 @@
-<div>"<%= @player1 %> vs <%= @player2 %>"</div>
+<div><%= @player1 %> vs <%= @player2 %></div>
+<table>
+<thead><tr colspan=2>Hit Points</tr></thead>
+<tr>
+<td>Player 1 </td>
+<td>Player 2 </td>
+</tr>
+<tr>
+  <td> <%= @player1_hp %> </td>
+  <td> <%= @player2_hp %> </td>
+</tr>
+</table>
+<div> player 2 has <%= @player2_hp %> Hit Points</div>
