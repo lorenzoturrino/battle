@@ -1,5 +1,5 @@
-<%= @game.turn.name %> was attacked by <%= @game.opposing.name %> <br>
-<%= @game.turn.name %> : <%=@game.turn.hp%>HP<br>
-<form action='/play' method='get'>
+<%= @game.opposing.name %> was attacked by <%= @game.turn.name %> <br>
+<%= @game.opposing.name %> : <%=@game.opposing.hp%>HP<br>
+<form action='/change_turn' method='post'>
   <input type='submit' value='Continue'/>
 </form>

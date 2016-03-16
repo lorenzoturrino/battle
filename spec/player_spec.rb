@@ -24,4 +24,11 @@ subject(:player) {described_class.new(:name)}
       expect(player.hp).to be <60
     end
   end
+
+  describe "#dead?" do
+    it "should return true if hp is zero" do
+      player.attacked until player.hp <= 0
+      expect(player).to be_dead
+    end
+  end
 end

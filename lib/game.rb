@@ -20,5 +20,9 @@ class Game
     @turn == @player1 ? @turn = @player2 : @turn = @player1
   end
 
+  def game_over?
+    @player1.dead? || @player2.dead?
+  end
+
 
 end

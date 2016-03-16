@@ -27,9 +27,17 @@ describe Game do
     end
   end
 
-  describe ' #change turn' do 
+  describe ' #change turn' do
     it " should change turn" do
       expect(game.change_turn).to eq player2
+    end
+  end
+
+  describe '#game_over' do
+    it "should return true if player is dead" do
+      allow(player1).to receive(:dead?).and_return(true)
+      allow(player2).to receive(:dead?).and_return(false)
+      expect(game).to be_game_over
     end
   end
 end
