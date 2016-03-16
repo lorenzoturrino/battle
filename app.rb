@@ -16,6 +16,7 @@ class Battle < Sinatra::Base
     session[:player1] = params[:player1]
     session[:player2] = params[:player2]
     redirect('/play')
+
   end
 
   # start the server if ruby file executed directly
