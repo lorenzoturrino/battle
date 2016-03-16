@@ -20,7 +20,9 @@ class Battle < Sinatra::Base
   end
 
   get '/attack' do
-    "You attacked the opponent."
+    @p2_name = $player_2_object.name
+    @p2_hp = $player_2_object.hp
+    erb(:attack)
   end
 
   # start the server if ruby file executed directly
