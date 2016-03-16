@@ -4,3 +4,11 @@ def sign_in_and_play
   fill_in(:player2, with: 'Caspar')
   click_button 'submit'
 end
+
+def attack
+  visit('/')
+  fill_in(:player1, with: 'Adil')
+  fill_in(:player2, with: 'Caspar')
+  click_button 'submit'
+  click_button 'Attack Caspar'
+end
