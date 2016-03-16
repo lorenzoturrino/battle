@@ -6,14 +6,14 @@ feature 'Player 1 attack' do
   end
 
   scenario "Player 2's hp will go down" do
-    attack
+    first_turn
     expect(page).to have_content ('Caspar : 50HP')
   end
 end
 
 feature 'Continue game for player 1' do
   scenario "Will direct to play-p2" do
-    attack
+    first_turn
     click_button('Continue')
     expect(page).to have_content("Caspar's turn")
   end
@@ -21,19 +21,20 @@ end
 
 feature 'Player 2 attack' do
   scenario 'Player 2 can attack and get a confirmation' do
-    attack_p2
+    second_turn
     expect(page).to have_content('Adil was attacked by Caspar')
   end
 
   scenario "Player 2's hp will go down" do
-    attack_p2
+    second_turn
     expect(page).to have_content ('Adil : 50HP')
   end
 end
 
 feature 'Continue game for player 2' do
-  scenario "Will direct to play-p1" do
-    continue
-    expect(page).to have_content("Adil's turn")
+  scenario "Will direct to play" do
+    third_turn
+    click_button('Continue')
+    expect(page).to have_content("Caspar's turn")
   end
 end

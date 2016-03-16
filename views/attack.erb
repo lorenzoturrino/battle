@@ -1,0 +1,5 @@
+<%= @game.turn.name %> was attacked by <%= @game.opposing.name %> <br>
+<%= @game.turn.name %> : <%=@game.turn.hp%>HP<br>
+<form action='/play' method='get'>
+  <input type='submit' value='Continue'/>
+</form>
