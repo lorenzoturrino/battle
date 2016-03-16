@@ -8,17 +8,10 @@ end
 
 def first_turn
   sign_in_and_play
-  click_button 'Attack Caspar'
+  click_button 'attack'
 end
 
-def second_turn
-  first_turn
+def continue
   click_button('Continue')
-  click_button('Attack Adil')
-end
-
-def third_turn
-  second_turn
-  click_button('Continue')
-  click_button('Attack Caspar')
+  click_button('attack')
 end
