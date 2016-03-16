@@ -1,0 +1,5 @@
+<%= @game.player1.name %> was attacked by <%= @game.player2.name %> <br>
+<%= @game.player1.name %> : <%=@game.player1.hp%>HP<br>
+<form action='/play-p1' method='get'>
+  <input type='submit' value='Continue'/>
+</form>
