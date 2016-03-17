@@ -40,4 +40,13 @@ describe Game do
       expect(game).to be_game_over
     end
   end
+
+  describe '#winner' do
+    it "should return the player who is not dead" do
+      allow(player1).to receive(:dead?).and_return(false)
+      allow(player2).to receive(:dead?).and_return(true)
+      expect(game.winner).to eq player1
+    end
+  end
+
 end

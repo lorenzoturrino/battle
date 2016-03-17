@@ -17,11 +17,16 @@ class Game
   end
 
   def change_turn
-    @turn == @player1 ? @turn = @player2 : @turn = @player1
+    @turn = (@turn == @player1 ? @player2 : @player1)
   end
 
   def game_over?
     @player1.dead? || @player2.dead?
+  end
+
+  def winner
+    return @player2 if @player1.dead?
+    @player1
   end
 
 
