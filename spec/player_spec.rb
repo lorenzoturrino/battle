@@ -7,21 +7,21 @@ describe Player do
 subject(:player) {described_class.new('bob')}
 
   describe "#name" do
-    it 'should display the name of the player' do
+    it 'should display and capitalize the name of the player' do
       expect(player.name).to eq 'Bob'
     end
   end
 
   describe "#hp" do
     it "should display the hit points of the player" do
-      expect(player.hp).to eq 60
+      expect(player.hp).to eq Player::DEFAULT_HP
     end
   end
 
   describe "#attacked" do
     it "should reduce the players HP" do
       player.attacked
-      expect(player.hp).to be <60
+      expect(player.hp).to eq Player::DEFAULT_HP - Player::ATTACK_POINTS
     end
   end
 

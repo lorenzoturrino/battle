@@ -4,13 +4,16 @@ class Player
 
   attr_reader :name, :hp
 
-  def initialize(name)
+  DEFAULT_HP = 60
+  ATTACK_POINTS = 10
+
+  def initialize(name, hp = DEFAULT_HP)
     @name = name.capitalize
-    @hp = 60
+    @hp = hp
   end
 
   def attacked
-    @hp -= 10
+    @hp -= ATTACK_POINTS
   end
 
   def dead?
