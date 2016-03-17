@@ -5,7 +5,7 @@ class Player
   attr_reader :name, :hp
 
   def initialize(name)
-    @name = name
+    @name = name.capitalize
     @hp = 60
   end
 

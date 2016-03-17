@@ -9,33 +9,33 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @game = $game
+    @game = Game.load
     erb(:play)
   end
 
   post '/names' do
     @player1 = Player.new(params[:player1])
     @player2 = Player.new(params[:player2])
-    $game = Game.new(@player1, @player2)
+    Game.save(Game.new(@player1, @player2))
     redirect('/play')
   end
 
   get '/attack' do
-    @game = $game
+    @game = Game.load
     @game.attack(@game.opposing)
     erb(:attack)
   end
 
 
   post '/change_turn' do
-    @game = $game
+    @game = Game.load
     redirect('/winner') if @game.game_over?
     @game.change_turn
     redirect('/play')
   end
 
   get '/winner' do
-    @game = $game
+    @game = Game.load
     erb :winner
   end
 
