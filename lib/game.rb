@@ -2,6 +2,7 @@ require 'pry'
 
 class Game
   attr_reader :player1, :player2, :turn
+  @game = nil
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
@@ -27,6 +28,14 @@ class Game
   def winner
     return @player2 if @player1.dead?
     @player1
+  end
+
+  def self.save(game)
+    @game = game
+  end
+
+  def self.load
+    @game
   end
 
 

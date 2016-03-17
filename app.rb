@@ -26,10 +26,6 @@ class Battle < Sinatra::Base
     erb(:attack)
   end
 
-  post '/game_over_check' do
-    @game = $game
-    @game.game_over? ? redirect('/winner') : redirect('/change_turn')
-  end
 
   post '/change_turn' do
     @game = $game

@@ -49,4 +49,10 @@ describe Game do
     end
   end
 
+  describe '#save & #load' do
+    it 'stores an instance of the class in the class instance variable' do
+      Game.save(game)
+      expect(Game.load).to eq game
+    end
+  end
 end
