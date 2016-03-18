@@ -2,9 +2,9 @@
 <%= @game.player1.name %> v <%= @game.player2.name %> <br>
 <%= @game.player1.name %>: <%= @game.player1.hp %>HP <br>
 <%= @game.player2.name %>: <%= @game.player2.hp %>HP <br>
-<form action='/attack' method='get'>
-  <input type='submit' id='attack_button' value= 'Attack <%= @game.opposing.name %>'/>
+<form action='/check_attack' method='post'>
+  <button type='submit' id='attack_button' value=':normal' name='attack_type'>Normal Attack <%= @game.opposing.name %></button>
 </form>
-<form action='/attack' method='get'>
-  <input type='submit' id='fixed_attack_button' value= 'Fixed Attack <%= @game.opposing.name %>'/>
+<form action='/check_attack' method='post'>
+  <button type='submit' id='fixed_button' value=':fixed' name='attack_type'>Fixed Attack <%= @game.opposing.name %></button>
 </form>

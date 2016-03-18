@@ -5,24 +5,17 @@ describe Game do
   let(:player1) {double(:player1, attacked: nil)}
   subject(:game) {described_class.new(player1, player2)}
 
-  it {is_expected.to respond_to(:attack).with(2).arguments}
+  it {is_expected.to respond_to(:attack).with(1).arguments}
 
   describe ' #attack' do
     it ' should call on the player #attacked' do
+      game.set_attack(:normal)
       expect(player1).to receive(:attacked)
       game.attack(player1)
     end
-
-    it ' should call the fixed_attack function if passed fixed' do
-      expect(game).to receive(:fixed_attack)
-      game.attack(player1, :fixed)
-    end
-
-    it ' should call the normal_attack function by default' do
-      expect(game).to receive(:random_attack)
-      game.attack(player1)
-    end
   end
+
+  it {is_expected.to respond_to(:set_attack).with(1).argument  }
 
   it {is_expected.to respond_to(:player1)}
   it {is_expected.to respond_to(:player2)}

@@ -20,6 +20,13 @@ class Battle < Sinatra::Base
     erb(:play)
   end
 
+  post '/check_attack' do
+    @game = Game.load
+    @attack_type = params[:attack_type]
+    @game.set_attack(@attack_type)
+    redirect('/attack')
+  end
+
   get '/attack' do
     @game = Game.load
     @game.attack(@game.opposing)

@@ -10,16 +10,20 @@ class Game
     @turn = player1
   end
 
-  def attack(player, type_of_attack = nil)
-    if type_of_attack.nil?
+  def attack(player)
+    if @type_of_attack == :normal
       random_attack(player)
-    elsif type_of_attack == :fixed
+    elsif @type_of_attack == :fixed
       fixed_attack(player)
+    else
+      raise 'No attacked selected'
     end
 
   end
 
-
+  def set_attack(attack_type)
+    @type_of_attack = attack_type
+  end
 
   def opposing
     @turn == @player1 ? @player2 : @player1
