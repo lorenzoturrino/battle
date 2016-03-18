@@ -1,7 +1,7 @@
 require 'pry'
 
 class Game
-  attr_reader :player1, :player2, :turn
+  attr_reader :player1, :player2, :turn, :type_of_attack
   DEFAULT_ATTACK = 9
   @game = nil
   def initialize(player1, player2)
@@ -11,7 +11,7 @@ class Game
   end
 
   def attack(player)
-    if @type_of_attack == :normal
+  if @type_of_attack == :normal
       random_attack(player)
     elsif @type_of_attack == :fixed
       fixed_attack(player)
@@ -22,7 +22,7 @@ class Game
   end
 
   def set_attack(attack_type)
-    @type_of_attack = attack_type
+    @type_of_attack = attack_type.to_sym
   end
 
   def opposing
