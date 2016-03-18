@@ -3,8 +3,11 @@
 <%= @game.player1.name %>: <%= @game.player1.hp %>HP <br>
 <%= @game.player2.name %>: <%= @game.player2.hp %>HP <br>
 <form action='/check_attack' method='post'>
-  <button type='submit' id='attack_button' value='normal' name='attack_type'>Normal Attack <%= @game.opposing.name %></button>
+  <button type='submit' id='attack_button' value='normal' name='attack_type'>Attack <%= @game.opposing.name %> with a Normal Punch</button>
 </form>
 <form action='/check_attack' method='post'>
-  <button type='submit' id='fixed_button' value='fixed' name='attack_type'>Fixed Attack <%= @game.opposing.name %></button>
+  <button type='submit' id='fixed_button' value='fixed' name='attack_type'>Attack <%= @game.opposing.name %> with a Calibrated Punch</button>
+</form>
+<form action='/check_attack' method='post'>
+  <button type='submit' id='cure_button' value='cure' name='attack_type'>Mend your wounds, <%= @game.turn.name %></button>
 </form>

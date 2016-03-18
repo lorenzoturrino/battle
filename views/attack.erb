@@ -1,5 +1,9 @@
-<%= @game.opposing.name %> was attacked by <%= @game.turn.name %> <br>
-<%= @game.opposing.name %> : <%=@game.opposing.hp%>HP<br>
+<% if @game.type_of_attack == :cure %>
+<div><%= @game.turn.name %> cures himself this turn</div>
+<% else %>
+<div><%= @game.turn.name %> attacks <%= @game.opposing.name %></div>
+<% end%>
+
 <form action='/change_turn' method='post'>
   <input type='submit' value='Continue'/>
 </form>

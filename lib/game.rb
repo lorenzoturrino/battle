@@ -10,15 +10,14 @@ class Game
     @turn = player1
   end
 
-  def attack(player)
-  if @type_of_attack == :normal
-      random_attack(player)
-    elsif @type_of_attack == :fixed
-      fixed_attack(player)
+  def attack
+    case @type_of_attack
+    when :normal then random_attack opposing
+    when :fixed then fixed_attack opposing
+    when :cure then cure @turn
     else
       raise 'No attacked selected'
     end
-
   end
 
   def set_attack(attack_type)
@@ -64,4 +63,7 @@ class Game
     player.attacked random_punch_strength
   end
 
+  def cure(player)
+    player.attacked -10
+  end
 end

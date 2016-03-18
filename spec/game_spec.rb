@@ -1,17 +1,17 @@
 require 'game'
 
 describe Game do
-  let(:player2) {double(:player2)}
+  let(:player2) {double(:player2, attacked: nil)}
   let(:player1) {double(:player1, attacked: nil)}
   subject(:game) {described_class.new(player1, player2)}
 
-  it {is_expected.to respond_to(:attack).with(1).arguments}
+  it {is_expected.to respond_to(:attack)}
 
   describe ' #attack' do
     it ' should call on the player #attacked' do
       game.set_attack(:normal)
-      expect(player1).to receive(:attacked)
-      game.attack(player1)
+      expect(player2).to receive(:attacked)
+      game.attack
     end
   end
 

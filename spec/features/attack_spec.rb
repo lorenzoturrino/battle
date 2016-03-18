@@ -1,7 +1,7 @@
 feature 'Player 1 attack' do
   scenario 'Player 1 can attack and get a confirmation' do
     first_turn
-    expect(page).to have_content('Caspar was attacked by Adil')
+    expect(page).to have_content('Adil attacks Caspar')
   end
 
   scenario "Player 2's hp will go down" do
@@ -15,7 +15,7 @@ feature 'Player 2 attack' do
   scenario 'Player 2 can attack and get a confirmation' do
     first_turn
     continue
-    expect(page).to have_content('Adil was attacked by Caspar')
+    expect(page).to have_content('Caspar attacks Adil')
   end
 
   scenario "Player 1's hp will go down" do
@@ -31,9 +31,6 @@ feature 'Attack options' do
     expect(page).to have_button('fixed_button')
   end
 end
-
-
-
 
 feature 'Continuing game after an attack' do
 

@@ -29,7 +29,7 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game = Game.load
-    @game.attack(@game.opposing)
+    @game.attack
     erb(:attack)
   end
 
