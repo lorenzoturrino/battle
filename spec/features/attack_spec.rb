@@ -25,6 +25,15 @@ feature 'Player 2 attack' do
   end
 end
 
+feature 'Attack options' do
+  scenario 'can do a fixed attack' do
+    sign_in_and_play
+    expect(page).to have_button('fixed_attack_button')
+  end
+end
+
+
+
 
 feature 'Continuing game after an attack' do
 

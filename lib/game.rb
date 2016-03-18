@@ -2,6 +2,7 @@ require 'pry'
 
 class Game
   attr_reader :player1, :player2, :turn
+  DEFAULT_ATTACK = 9
   @game = nil
   def initialize(player1, player2)
     @player1 = player1
@@ -9,9 +10,16 @@ class Game
     @turn = player1
   end
 
-  def attack(player)
-    player.attacked punch_strength
+  def attack(player, type_of_attack = nil)
+    if type_of_attack.nil?
+      random_attack(player)
+    elsif type_of_attack == :fixed
+      fixed_attack(player)
+    end
+
   end
+
+
 
   def opposing
     @turn == @player1 ? @player2 : @player1
@@ -40,10 +48,16 @@ class Game
 
   private
 
-  def punch_strength
-    srand
+  def random_punch_strength
     rand(5..15)
   end
 
+  def fixed_attack(player)
+    player.attacked DEFAULT_ATTACK
+  end
+
+  def random_attack(player)
+    player.attacked random_punch_strength
+  end
 
 end
