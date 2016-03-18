@@ -4,6 +4,7 @@ require 'spec_helper'
 
 describe Player do
 
+ATTACK_POINTS = 10
 subject(:player) {described_class.new('bob')}
 
   describe "#name" do
@@ -19,15 +20,14 @@ subject(:player) {described_class.new('bob')}
   end
 
   describe "#attacked" do
-    it "should reduce the players HP" do
-      player.attacked
-      expect(player.hp).to eq Player::DEFAULT_HP - Player::ATTACK_POINTS
+    it "should reduce the players HP by the given amount" do
+      expect{player.attacked ATTACK_POINTS}.to change{player.hp}.by -ATTACK_POINTS
     end
   end
 
   describe "#dead?" do
     it "should return true if hp is zero" do
-      player.attacked until player.hp <= 0
+      player.attacked Player::DEFAULT_HP
       expect(player).to be_dead
     end
   end

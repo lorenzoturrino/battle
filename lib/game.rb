@@ -10,7 +10,7 @@ class Game
   end
 
   def attack(player)
-    player == @player2 ? @player2.attacked : @player1.attacked
+    player.attacked punch_strength
   end
 
   def opposing
@@ -18,7 +18,7 @@ class Game
   end
 
   def change_turn
-    @turn = (@turn == @player1 ? @player2 : @player1)
+    @turn = opposing
   end
 
   def game_over?
@@ -36,6 +36,13 @@ class Game
 
   def self.load
     @game
+  end
+
+  private
+
+  def punch_strength
+    srand
+    rand(5..15)
   end
 
 

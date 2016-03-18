@@ -2,14 +2,20 @@ require 'game'
 
 describe Game do
   let(:player2) {double(:player2)}
-  let(:player1) {double(:player1)}
+  let(:player1) {double(:player1, attacked: nil)}
   subject(:game) {described_class.new(player1, player2)}
 
   describe ' #attack' do
     it ' should call on the player #attacked' do
-      expect(player1).to receive(:attacked)
+        expect(player1).to receive(:attacked)
       game.attack(player1)
     end
+
+    it ' should call the punch_strength function' do
+      expect(game).to receive(:punch_strength)
+      game.attack(player1)
+    end
+
   end
 
   it {is_expected.to respond_to(:player1)}
@@ -55,4 +61,5 @@ describe Game do
       expect(Game.load).to eq game
     end
   end
+
 end

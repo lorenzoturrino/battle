@@ -8,11 +8,6 @@ class Battle < Sinatra::Base
     erb(:index)
   end
 
-  get '/play' do
-    @game = Game.load
-    erb(:play)
-  end
-
   post '/names' do
     @player1 = Player.new(params[:player1])
     @player2 = Player.new(params[:player2])
@@ -20,12 +15,16 @@ class Battle < Sinatra::Base
     redirect('/play')
   end
 
+  get '/play' do
+    @game = Game.load
+    erb(:play)
+  end
+
   get '/attack' do
     @game = Game.load
     @game.attack(@game.opposing)
     erb(:attack)
   end
-
 
   post '/change_turn' do
     @game = Game.load

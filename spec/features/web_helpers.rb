@@ -8,10 +8,10 @@ end
 
 def first_turn
   sign_in_and_play
-  click_button 'attack'
+  click_button 'attack_button'
 end
 
 def continue
   click_button('Continue')
-  click_button('attack')
+  click_button('attack_button')
 end
